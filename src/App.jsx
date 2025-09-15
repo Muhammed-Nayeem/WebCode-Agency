@@ -5,7 +5,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="min-h-screen">
         <Outlet />
       </main>
     </>
