@@ -1,18 +1,13 @@
 import { tools } from "../../data/app-data";
+import HeadLine from "../HeadLine/HeadLine";
 import ToolCard from "./ToolCard";
 
 const ToolSection = () => {
   return (
     <section className="bg-white py-20">
       <div className="container max-w-screen-xl mx-auto">
-        <article className="text-center">
-          <span className="uppercase text-base text-blue-600 font-medium">
-            The tools you need
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mt-2 capitalize">
-            All-in-one Solution for Your Projects
-          </h2>
-        </article>
+        <HeadLine subheading="The tools you need" heading="All-in-one Solution for Your Projects" />
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
           {tools.map((tool) => (
             <ToolCard key={tool.t_id}>

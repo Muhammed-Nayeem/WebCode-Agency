@@ -4,6 +4,13 @@
 
 //Icons:
 import { FiSettings, FiCode, FiSmartphone, FiCloud } from "react-icons/fi";
+import {
+  FaApple,
+  FaGoogle,
+  FaAmazon,
+  FaFacebook,
+  FaMicrosoft,
+} from "react-icons/fa";
 
 const tools = [
   {
@@ -32,4 +39,12 @@ const tools = [
   },
 ];
 
-export { tools };
+const companies = [
+  { c_id: "c001", name: "Apple", companyIcon: FaApple },
+  { c_id: "c002", name: "Google", companyIcon: FaGoogle },
+  { c_id: "c003", name: "Amazon", companyIcon: FaAmazon },
+  { c_id: "c004", name: "Facebook", companyIcon: FaFacebook },
+  { c_id: "c005", name: "Microsoft", companyIcon: FaMicrosoft },
+];
+
+export { tools, companies };
