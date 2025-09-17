@@ -5,7 +5,16 @@
 //Icons:
 import { FiSettings, FiCode, FiSmartphone, FiCloud } from "react-icons/fi";
 import { FaChartLine, FaBandcamp, FaCalendar, FaTruck } from "react-icons/fa6";
-import { FaApple, FaGoogle, FaAmazon, FaFacebook, FaMicrosoft } from "react-icons/fa";
+import {
+  FaApple,
+  FaGoogle,
+  FaAmazon,
+  FaFacebook,
+  FaMicrosoft,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+} from "react-icons/fa";
 
 //Blogs Thumbnails:
 import thumbnail_one from "../assets/blogs/blog1.png";
@@ -18,6 +27,12 @@ import author_one from "../assets/authors/author1.png";
 import author_two from "../assets/authors/author2.png";
 import author_three from "../assets/authors/author3.png";
 import author_four from "../assets/authors/author4.png";
+
+//Team Members Image:
+import memberOne from "../assets/members/person1.png";
+import memberTwo from "../assets/members/person2.png";
+import memberThree from "../assets/members/person3.png";
+import memberFour from "../assets/members/person4.png";
 
 const tools = [
   {
@@ -58,22 +73,26 @@ const services = [
   {
     s_id: "s001",
     serviceIcon: FaCalendar,
-    serviceDesc:"Nibh nullam vitae semper pharetra sit enim id. Ut eu non massa nec. Proin eget semper orci suspendisse in ornare adipiscing phasellus mauris. Velit faucibus at habitasse tempor sit odio ac commodo dui.",
+    serviceDesc:
+      "Nibh nullam vitae semper pharetra sit enim id. Ut eu non massa nec. Proin eget semper orci suspendisse in ornare adipiscing phasellus mauris. Velit faucibus at habitasse tempor sit odio ac commodo dui.",
   },
   {
     s_id: "s002",
     serviceIcon: FaBandcamp,
-    serviceDesc:"Sed et pulvinar donec sed et, nisl dolor amet. Mollis aliquet volutpat ullamcorper ac sed lectus iaculis. Fringilla sed placerat commodo bibendum integer. Diam ut magna eleifend consectetur.",
+    serviceDesc:
+      "Sed et pulvinar donec sed et, nisl dolor amet. Mollis aliquet volutpat ullamcorper ac sed lectus iaculis. Fringilla sed placerat commodo bibendum integer. Diam ut magna eleifend consectetur.",
   },
   {
     s_id: "s003",
     serviceIcon: FaChartLine,
-    serviceDesc:"Nunc amet, tempor morbi ligula ut faucibus gravida. Accumsan, suspendisse mus quisque pellentesque id vulputate hendrerit. Donec ipsum nibh elementum platea proin egestas gravida consectetur sit.",
+    serviceDesc:
+      "Nunc amet, tempor morbi ligula ut faucibus gravida. Accumsan, suspendisse mus quisque pellentesque id vulputate hendrerit. Donec ipsum nibh elementum platea proin egestas gravida consectetur sit.",
   },
   {
     s_id: "s004",
     serviceIcon: FaTruck,
-    serviceDesc:"Pellentesque auctor adipiscing lacus viverra. Neque, nulla in amet eget. Arcu, nibh purus urna amet sagittis quis tellus etiam eget. Ultrices egestas a tristique aliquet odio varius.",
+    serviceDesc:
+      "Pellentesque auctor adipiscing lacus viverra. Neque, nulla in amet eget. Arcu, nibh purus urna amet sagittis quis tellus etiam eget. Ultrices egestas a tristique aliquet odio varius.",
   },
 ];
 
@@ -124,4 +143,55 @@ const blogs = [
   },
 ];
 
-export { tools, companies, services, blogs };
+const teamMembers = [
+  {
+    m_id: "m001",
+    name: "Jhon Doe",
+    image: memberOne,
+    designation: "ceo",
+    icons: {
+      linkedIn: FaLinkedinIn,
+      facebook: FaFacebook,
+      twitter: FaTwitter,
+      instagram: FaInstagram,
+    },
+  },
+  {
+    m_id: "m002",
+    name: "Jane Foster",
+    image: memberTwo,
+    designation: "cto",
+    icons: {
+      linkedIn: FaLinkedinIn,
+      facebook: FaFacebook,
+      twitter: FaTwitter,
+      instagram: FaInstagram,
+    },
+  },
+  {
+    m_id: "m003",
+    name: "Shina Amin",
+    image: memberThree,
+    designation: "designer",
+    icons: {
+      linkedIn: FaLinkedinIn,
+      facebook: FaFacebook,
+      twitter: FaTwitter,
+      instagram: FaInstagram,
+    },
+  },
+  {
+    m_id: "m004",
+    name: "Nicky Nicole",
+    image: memberFour,
+    designation: "developer",
+    icons: {
+      linkedIn: FaLinkedinIn,
+      facebook: FaFacebook,
+      twitter: FaTwitter,
+      instagram: FaInstagram,
+    },
+  },
+];
+
+export { tools, companies, services, blogs, teamMembers };
