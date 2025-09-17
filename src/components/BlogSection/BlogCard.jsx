@@ -1,6 +1,6 @@
 const BlogCard = ({ blog }) => {
   return (
-    <div className="card bg-white shadow-sm overflow-hidden transition duration-300 group cursor-pointer">
+    <div className="card bg-white shadow-sm overflow-hidden  hover:-translate-y-1 transition duration-300 group cursor-pointer">
       <figure>
         <img
           src={blog?.thumbnail}
