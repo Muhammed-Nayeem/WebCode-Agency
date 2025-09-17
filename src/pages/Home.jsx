@@ -1,3 +1,4 @@
+import BlogSection from "../components/BlogSection/BlogSection";
 import CompaniesSection from "../components/CompaniesSection/CompaniesSection";
 import HeroSection from "../components/HeroSection/HeroSection";
 import ServiceSection from "../components/ServiceSection/ServiceSection";
@@ -12,6 +13,7 @@ const Home = () => {
       <CompaniesSection />
       <ServiceSection />
       <TestimonialSection />
+      <BlogSection />
     </>
   );
 };
