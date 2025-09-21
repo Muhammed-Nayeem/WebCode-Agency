@@ -1,5 +1,6 @@
 import BlogSection from "../components/BlogSection/BlogSection";
 import CompaniesSection from "../components/CompaniesSection/CompaniesSection";
+import FAQSection from "../components/FAQSection/FAQSection";
 import HeroSection from "../components/HeroSection/HeroSection";
 import PricingSection from "../components/PricingSection/PricingSection";
 import ServiceSection from "../components/ServiceSection/ServiceSection";
@@ -18,6 +19,7 @@ const Home = () => {
       <BlogSection />
       <TeamMemberSection />
       <PricingSection />
+      <FAQSection />
     </>
   );
 };
