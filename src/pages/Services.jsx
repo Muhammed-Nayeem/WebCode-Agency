@@ -1,8 +1,10 @@
+import ServiceSection from "../components/ServiceSection/ServiceSection";
+
 const Services = () => {
   return (
-    <div>
-      <h1>Services Page</h1>
-    </div>
+    <>
+      <ServiceSection />
+    </>
   );
 };
 
