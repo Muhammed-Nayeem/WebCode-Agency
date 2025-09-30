@@ -82,7 +82,7 @@ const Navbar = () => {
               <span className="text-xl font-bold text-gray-700">WebCode</span>
             </a>
           </div>
-          <div className="navbar-center hidden lg:flex">
+          <div className="navbar-center hidden lg:flex z-50">
             <ul className="menu menu-horizontal px-1">
               <li>
                 <Link className="text-base font-medium text-gray-700" to="/">
@@ -129,8 +129,8 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end space-x-3">
-            <Link className="btn btn-outline btn-primary hidden sm:flex">Log In</Link>
-            <Link className="btn btn-primary">Start Free Trial</Link>
+            <Link className="btn btn-outline btn-primary hidden sm:flex" to="/login">Log In</Link>
+            <Link to="/price" className="btn btn-primary">Start Free Trial</Link>
           </div>
         </div>
       </div>
