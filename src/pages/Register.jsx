@@ -1,7 +1,15 @@
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { Link } from "react-router";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
     <section className="bg-gray-100 py-14">
       <div className="container max-w-screen-xl mx-auto">
@@ -10,30 +18,57 @@ const Register = () => {
             <h2 className="text-2xl text-gray-800 font-bold text-center">
               Please SignUp First!
             </h2>
-            <form className="mt-8 flex flex-col gap-4">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="mt-8 flex flex-col gap-4"
+            >
               <div className="flex flex-col gap-2">
                 <label className="text-lg font-medium text-gray-800">
                   Email:{" "}
                 </label>
                 <input
+                  {...register("email", {
+                    required: "Email is required!",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Invalid email address",
+                    },
+                  })}
                   type="email"
                   name="email"
                   id="email"
                   placeholder="example@email.com"
                   className="border border-gray-300 rounded px-4 py-2 focus:outline-blue-500 focus:border-transparent"
                 />
+                {errors.email && (
+                  <p className="text-sm italic text-red-500 mt-2">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
               <div className="flex flex-col gap-2">
                 <label className="text-lg font-medium text-gray-800">
                   Password:{" "}
                 </label>
                 <input
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be at least 6 characters",
+                    },
+                  })}
                   type="password"
                   name="password"
                   id="password"
                   placeholder="Enter Password"
                   className="border border-gray-300 rounded px-4 py-2 focus:outline-blue-500 focus:border-transparent"
                 />
+                {errors.password && (
+                  <p className="text-sm italic text-red-500 mt-2">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
               <input
                 className="bg-blue-600 py-1.5 rounded text-white text-base hover:bg-blue-700 cursor-pointer mt-2"
@@ -58,7 +93,16 @@ const Register = () => {
               </div>
             </div>
             <div className="text-center mt-8">
-              <p className="text-base text-gray-600">Already have an account? Please <Link to="/login" className="text-blue-600 text-lg hover:underline">Login</Link> here!</p>
+              <p className="text-base text-gray-600">
+                Already have an account? Please{" "}
+                <Link
+                  to="/login"
+                  className="text-blue-600 text-lg hover:underline"
+                >
+                  Login
+                </Link>{" "}
+                here!
+              </p>
             </div>
           </div>
         </div>
