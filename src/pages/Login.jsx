@@ -1,14 +1,23 @@
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import AuthContext from "../contexts/AuthContext";
 
 const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  let { signInUser } = useContext(AuthContext);
+  let navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors },} = useForm();
+
+  const onSubmit = async(data) => {
+    try {
+      await signInUser(data.email, data.password);
+      alert("User logged in successfully!");
+      navigate("/");
+    } catch (error) {
+      alert(`User LogIn Failed! ${error.message}`);
+    }
+  };
 
   return (
     <section className="bg-gray-100 py-14">
