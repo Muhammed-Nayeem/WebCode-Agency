@@ -1,7 +1,22 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import logo from "../../assets/logo.png";
+import { useContext } from "react";
+import AuthContext from "../../contexts/AuthContext";
 
 const Navbar = () => {
+  let { user, signOutUser } = useContext(AuthContext);
+  let navigate = useNavigate();
+
+  const logOut = async() => {
+    try {
+      await signOutUser();
+      alert("User SignOut Successfully!");
+      navigate("/login");
+    } catch (error) {
+      alert(`SignOut Failed! ${error.message}`);
+    }
+  };
+
   return (
     <header className="bg-white">
       <div className="container max-w-screen-xl mx-auto">
@@ -129,8 +144,29 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end space-x-3">
-            <Link className="btn btn-outline btn-primary hidden sm:flex" to="/login">Log In</Link>
-            <Link to="/price" className="btn btn-primary">Start Free Trial</Link>
+            {user ? (
+              <>
+                <Link
+                  className="btn btn-outline btn-primary hidden sm:flex"
+                  to="/dashboard"
+                >
+                  Dashboard
+                </Link>
+                <button onClick={logOut} className="btn btn-primary">SignOut</button>
+              </>
+            ) : (
+              <>
+                <Link
+                  className="btn btn-outline btn-primary hidden sm:flex"
+                  to="/login"
+                >
+                  Log In
+                </Link>
+                <Link to="/price" className="btn btn-primary">
+                  Start Free Trial
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

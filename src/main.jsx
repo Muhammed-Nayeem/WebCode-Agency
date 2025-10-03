@@ -10,6 +10,8 @@ import Register from "./pages/Register.jsx";
 import Login from "./pages/Login.jsx";
 import PricingSection from "./components/PricingSection/PricingSection.jsx";
 import AuthProvider from "./providers/AuthProvider.jsx";
+import PrivateRoute from "./routes/PrivateRoute.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
@@ -25,6 +27,15 @@ createRoot(document.getElementById("root")).render(
 
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   </AuthProvider>
