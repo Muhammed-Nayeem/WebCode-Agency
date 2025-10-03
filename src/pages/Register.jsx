@@ -5,7 +5,7 @@ import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
 
 const Register = () => {
-  let { createUser } = useContext(AuthContext);
+  let { createUser, signInWithFacebook, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
   let navigate = useNavigate();
   const {register, handleSubmit, formState: { errors },} = useForm();
 
@@ -16,6 +16,33 @@ const Register = () => {
       navigate("/login");
     } catch (error) {
       alert(`SignUp Failed! ${error.message}`);
+    }
+  };
+
+  const handleFacebookSignIn = async() => {
+    try {
+      await signInWithFacebook();
+      navigate("/");
+    } catch (error) {
+      alert(`Error Occurred! ${error.message}`);
+    }
+  };
+
+  const handleGoogleSignIn = async() => {
+    try {
+      await signInWithGoogle();
+      navigate("/")
+    } catch (error) {
+      alert(`Error Occurred! ${error.message}`);
+    }
+  };
+
+  const handleGithubSignIn = async() => {
+    try {
+      await signInWithGithub();
+      navigate("/");
+    } catch (error) {
+      alert(`Error Occurred! ${error.message}`);
     }
   };
 
@@ -90,13 +117,13 @@ const Register = () => {
                 Or SignUp with
               </p>
               <div className="flex flex-col sm:flex-row justify-between mt-6">
-                <button className="px-3 py-1.5 flex justify-center items-center gap-2 text-base text-white bg-blue-600 hover:bg-blue-700 cursor-pointer rounded">
+                <button onClick={handleFacebookSignIn} className="px-3 py-1.5 flex justify-center items-center gap-2 text-base text-white bg-blue-600 hover:bg-blue-700 cursor-pointer rounded">
                   <FaFacebook /> <span>Facebook</span>
                 </button>
-                <button className="px-3 py-1.5 flex justify-center items-center gap-2 text-base text-white bg-orange-600 hover:bg-orange-700 cursor-pointer rounded">
+                <button onClick={handleGoogleSignIn} className="px-3 py-1.5 flex justify-center items-center gap-2 text-base text-white bg-orange-600 hover:bg-orange-700 cursor-pointer rounded">
                   <FaGoogle /> <span>Google</span>
                 </button>
-                <button className="px-3 py-1.5 flex justify-center items-center gap-2 text-base text-white bg-gray-900 hover:bg-gray-950 cursor-pointer rounded">
+                <button onClick={handleGithubSignIn} className="px-3 py-1.5 flex justify-center items-center gap-2 text-base text-white bg-gray-900 hover:bg-gray-950 cursor-pointer rounded">
                   <FaGithub /> <span>GitHub</span>
                 </button>
               </div>
